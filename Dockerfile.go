@@ -1,4 +1,4 @@
-FROM golang:1.13 as builder
+FROM golang:1.13.6 as builder
 
 WORKDIR /go/src/github.com/jeonjonghyeok/golang
 RUN go get -d -v github.com/urfave/cli
