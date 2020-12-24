@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: jeonjonghyeok/docker		## docker hub 이미지 지정
+        ports:
+        - containerPort: 80
+      imagePullSecrets:			## 참조할 secret name
+      - name: mysecret
